@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin t&iacute;tulo</title>
+<style type="text/css"> 
+    <!-- 
+    body  {
+	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	background: #666666;
+	margin: 0; /* es recomendable ajustar a cero el margen y el relleno del elemento body para lograr la compatibilidad con la configuración predeterminada de los diversos navegadores */
+	padding: 0;
+	text-align: center; /* esto centra el contenedor en los navegadores IE 5*. El texto se ajusta posteriormente con el valor predeterminado de alineación a la izquierda en el selector #container */
+	color: #000000;
+	background-color: #006600;
+    }
+    
+    /* Sugerencias para diseños elásticos 
+    1. Dado que el tamaño global de los diseños elásticos se basa en el tamaño de fuente predeterminado del usuario, resultan algo más impredecibles. Si se utilizan correctamente, también son más accesibles para aquellas personas que necesitan tamaños de fuentes más grandes, dado que la longitud de línea mantiene la proporcionalidad.
+    2. La asignación de tamaño a los divs en este diseño se basa en el 100% del tamaño de fuente en el elemento body. Si reduce el tamaño global del texto empleando font-size: 80% en el elemento body o el #container, recuerde que todo el diseño reducirá su tamaño proporcionalmente. Es posible que le interese aumentar los anchos de los diversos divs para compensar este efecto.
+    3. Si la asignación de tamaño de fuente se modifica de forma distinta en cada div en lugar de hacerse en el diseño global (es decir: a #sidebar1 se le asigna un 70% de tamaño de fuente y a #mainContent se le asigna un 85% de tamaño de fuente), ello hará que se modifique proporcionalmente el tamaño global de cada uno de los divs. Si lo desea, puede realizar el ajuste basándose en la asignación de tamaño de fuente final.
+    */
+    .thrColElsHdr #container { 
+    	width: 46em;  /* este ancho creará un contenedor que cabrá en una ventana de navegador 800px si el texto se deja con los tamaños de fuente predeterminados del navegador */
+    	background: #FFFFFF;
+    	margin: 0 auto; /* los márgenes automáticos (conjuntamente con un ancho) centran la página */
+    	border: 1px solid #000000;
+    	text-align: left; /* esto anula text-align: center en el elemento body. */
+    } 
+    .thrColElsHdr #header { 
+    	background: #DDDDDD; 
+    	padding: 0 10px;  /* este relleno coincide con la alineación izquierda de los elementos de los divs que aparecen bajo él. Si se utiliza una imagen en el #header en lugar de texto, es posible que le interese quitar el relleno. */
+    } 
+    .thrColElsHdr #header h1 {
+    	margin: 0; /* el ajuste en cero del margen del último elemento del div de #header evita la contracción del margen (un espacio inexplicable entre divs). Si el div tiene un borde alrededor, esto no es necesario, ya que también evita la contracción del margen */
+    	padding: 10px 0; /* el uso de relleno en lugar de margen le permitirá mantener el elemento alejado de los bordes del div */
+    }
+    
+    /* Sugerencias para sidebar1:
+    1. Tenga en cuenta que, si establece un valor de tamaño de fuente en este div, el ancho global del div se ajustará en función de éste.
+    2. Dado que está trabajando en ems, es conveniente no utilizar relleno en la barra lateral propiamente dicha. Se añadirá al ancho en el caso de navegadores que cumplen los estándares, creando un ancho real desconocido. 
+    3. El espacio entre el lado del div y los elementos que contiene puede crearse colocando un margen izquierdo y derecho en dichos elementos, como se observa en la regla ".thrColElsHdr #sidebar1 p".
+    */
+    .thrColElsHdr #sidebar1 {
+    	float: left; 
+    	width: 11em; /* dado que este elemento es flotante, debe asignarse un ancho */
+    	background: #EBEBEB; /* el color de fondo se mostrará a lo largo de todo el contenido de la columna, pero no más allá */
+    	padding: 15px 0; /* el relleno superior e inferior crea un espacio visual dentro de este div */
+    }
+    .thrColElsHdr #sidebar2 {
+    	float: right; 
+    	width: 11em; /* dado que este elemento es flotante, debe asignarse un ancho */
+    	background: #EBEBEB; /* el color de fondo se mostrará a lo largo de todo el contenido de la columna, pero no más allá */
+    	padding: 15px 0; /* el relleno superior e inferior crea un espacio visual dentro de este div */
+    }
+    .thrColElsHdr #sidebar1 h3, .thrColElsHdr #sidebar1 p, .thrColElsHdr #sidebar2 p, .thrColElsHdr #sidebar2 h3 {
+    	margin-left: 10px; /* deben asignarse los márgenes izquierdo y derecho de cada elemento que vaya a colocarse en las columnas laterales */
+    	margin-right: 10px;
+    }
+    
+    /* Sugerencias para mainContent:
+    1. Si asigna a este div #mainContent un valor de tamaño de fuente distinto del que tiene el div #sidebar1, los márgenes del div #mainContent se basarán en su tamaño de fuente y el ancho del div #sidebar1 se basará en su tamaño de fuente. Puede que le interese ajustar los valores de estos divs.
+    2. El espacio entre el mainContent y sidebar1 se crea con el margen izquierdo del div mainContent.  Con independencia de la cantidad de contenido que incluya el div sidebar1, permanecerá el espacio de la columna. Puede quitar el margen izquierdo si desea que el texto del div #mainContent llene el espacio de #sidebar1 cuando termine el contenido de #sidebar1.
+    3. Para evitar la caída de un elemento flotante, puede que tenga que realizar pruebas con el fin de determinar el tamaño máximo aproximado de la imagen/el elemento, ya que este diseño se basa en el tamaño de fuente del usuario combinado con los valores que usted establezca. Sin embargo, si el usuario tiene configurado un tamaño de fuente inferior al normal, habrá menos espacio disponible en el div #mainContent del que observará al realizar la prueba.
+    4. En el siguiente comentario condicional de Internet Explorer, la propiedad zoom se utiliza para asignar a mainContent "hasLayout." Esto evita que se produzcan diversos problemas específicos de IE.
+    */
+    .thrColElsHdr #mainContent {
+     	margin: 0 12em 0 12em; /* el margen derecho puede asignarse en ems o píxeles. Éste crea el espacio a lo largo de la parte derecha de la página. */
+    } 
+    .thrColElsHdr #footer { 
+    	padding: 0 10px; /* este relleno coincide con la alineación izquierda de los elementos de los divs que aparecen por encima de él. */
+    	background:#DDDDDD;
+    } 
+    .thrColElsHdr #footer p {
+    	margin: 0; /* el ajuste en cero de los márgenes del primer elemento del pie evitará que puedan contraerse los márgenes (un espacio entre divs) */
+    	padding: 10px 0; /* el relleno de este elemento creará espacio, de la misma forma que lo haría el margen, sin el problema de la contracción de márgenes */
+    }
+    
+    /* Varias clases diversas para su reutilización */
+    .fltrt { /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+    	float: right;
+    	margin-left: 8px;
+    }
+    .fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. */
+    	float: left;
+    	margin-right: 8px;
+    }
+    .clearfloat { /* esta clase debe colocarse en un elemento div o break y debe ser el último elemento antes del cierre de un contenedor que incluya completamente a un elemento flotante */
+    	clear:both;
+        height:0;
+        font-size: 1px;
+        line-height: 0px;
+    }
+.Estilo1 {
+	color: #FF0000
+}
+.Estilo2 {font-weight: bold}
+    --> 
+    </style><!--[if IE]>
+    <style type="text/css"> 
+    /* coloque las reparaciones de css para todas las versiones de IE en este comentario condicional */
+    .thrColElsHdr #sidebar1, .thrColElsHdr #sidebar2 { padding-top: 30px; }
+    .thrColElsHdr #mainContent { zoom: 1; padding-top: 15px; }
+    /* la propiedad zoom propia que se indica más arriba proporciona a IE el hasLayout que necesita para evitar diversos errores */
+    </style>
+    <![endif]--></head>
+
+<body class="thrColElsHdr">
+
+    <div id="container">
+      <div id="header">
+        <h1 align="center" class="Estilo1">¿COMO LO HICIMOS?</h1>
+      <!-- end #header --></div>
+      <div id="sidebar1">
+        <div align="center">
+          <p><span class="Estilo2"><br />
+            ¿COMO LO HICIMOS?<a href="como lo hicimos.html"><br />
+      </a><br />
+                <a href="IMPORTANCIA DE LAS AREAS VERDES.html">IMPORTANCIA DE LAS AREAS VERDES<br />
+    </a><a href="alv.html"><br />
+                    </a><a href="REFORESTANDO COBACH.html">REFORESTANDO COBACH</a></span>
+            <!-- end #sidebar1 -->
+            <br />
+            <span class="Estilo2"><a href="alv.html"><br />
+            </a><a href="GRUPOS RELACIONADOS EN EL PROYECTO.html">GRUPOS EN EL PROYECTO</a></span></p>
+          <p><a href="PAGINA PRINCIPAL.html"><img src="http://www.crc-system.com/images/inicio.png" alt="Imagen relacionada" width="72" height="74" lowsrc="PROYECTO.png"/></a></p>
+        </div>
+      </div>
+      <div id="sidebar2">
+        <h3 align="center"><strong><strong><strong><img src="PROYECTO.png" alt="" width="108" height="101" /></strong></strong></strong>
+          <!-- end #sidebar2 -->
+        </h3>
+      </div>
+      <div id="mainContent">
+        <h1><img src="60413359_1582377981907279_2088585563174076416_n.jpg" width="339" height="190" /></h1>
+        <p>Para el proyecto surgio la idea de plantar un arbol y tratar de arreglar la zona que se encuentra entre los edificos B y C, nos pusimos de acuerdo para conseguir los materiales y saber exactament que hariamos, plantamos una lila y posterior le tratamos de hacer una jardinera sencilla para evitar que el agua saliera.</p>
+        <table width="350" height="111" border="3">
+          <tr>
+            <th width="298" scope="col">&nbsp;</th>
+            <th width="28" scope="col">SI</th>
+            <th width="27" scope="col">NO</th>
+          </tr>
+          <tr>
+            <th scope="row"><div align="left">Ubicamos la zona correcta</div></th>
+            <td><div align="center"><strong>x</strong></div></td>
+            <td><div align="center"></div></td>
+          </tr>
+          <tr>
+            <th scope="row"><div align="left">Escogimos un arbol adecuado</div></th>
+            <td><div align="center"><strong>x</strong></div></td>
+            <td><div align="center"></div></td>
+          </tr>
+          <tr>
+            <th height="30" scope="row"><div align="left">Hicimos un agujero </div></th>
+            <td><div align="center"><strong>x</strong></div></td>
+            <td><div align="center"></div></td>
+          </tr>
+        </table>
+        <table width="350" height="52" border="3">
+          <tr>
+            <th scope="col"><div align="left">Plantamos el arbol</div></th>
+            <th width="29" scope="col"><div align="center">x</div></th>
+            <th width="24" scope="col"><div align="center"></div></th>
+          </tr>
+          <tr>
+            <th scope="row"><div align="left">Regamos el arbol</div></th>
+            <td><div align="center"><strong>x</strong></div></td>
+            <td><div align="center"></div></td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <div align="center">
+          <p><img src="61145325_653905061688609_965198813495033856_n.jpg" width="205" height="158" /></p>
+        </div>
+        <h1>&nbsp;</h1>
+      <!-- end #mainContent --></div>
+<p>
+    	  <!-- Este elemento de eliminación siempre debe ir inmediatamente después del div #mainContent para forzar al div #container a que contenga todos los elementos flotantes hijos --> 
+   	  </p>
+    	<p>&nbsp;</p>
+    	<div id="footer">
+        <p align="center">ARRIBA LAS CHIVAS</p>
+      <!-- end #footer --></div>
+<!-- end #container --></div>
+    </body>
+</html>
